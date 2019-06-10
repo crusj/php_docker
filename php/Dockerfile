@@ -18,7 +18,7 @@ RUN docker-php-ext-install pdo_mysql soap zip \
 
 RUN wget https://getcomposer.org/download/1.8.5/composer.phar -O /usr/local/bin/composer \
 && chmod +x /usr/local/bin/composer  \
-&& composer config -g repo.packagist composer https://packagist.phpcomposer.com
+&& composer config -g repo.packagist composer https://packagist.laravel-china.org
 
 COPY xdebug.conf /usr/local/etc/php/conf.d
 
