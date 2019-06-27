@@ -10,9 +10,9 @@ RUN apt install -y vim net-tools telnet wget libxml2-dev zlib1g-dev libzip-dev u
 
 ##### 安装php扩展
 
-RUN docker-php-ext-install pdo_mysql soap zip gd \
+RUN docker-php-ext-install pdo_mysql soap zip gd mysqli \
 && pecl install redis mongodb xdebug  \
-&& docker-php-ext-enable pdo_mysql soap zip redis mongodb xdebug gd
+&& docker-php-ext-enable pdo_mysql soap zip redis mongodb xdebug gd mysqli
 
 ##### 安装composer
 
