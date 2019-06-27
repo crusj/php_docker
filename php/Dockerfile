@@ -19,6 +19,8 @@ RUN docker-php-ext-install pdo_mysql soap zip gd mysqli \
 RUN wget https://getcomposer.org/download/1.8.5/composer.phar -O /usr/local/bin/composer \
 && chmod +x /usr/local/bin/composer  \
 && composer config -g repo.packagist composer https://packagist.laravel-china.org
+##### 改变www-data uid gid
+RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
 
 COPY xdebug.conf /usr/local/etc/php/conf.d
 
