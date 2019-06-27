@@ -6,13 +6,13 @@ RUN sed -i "s/deb.debian.org/mirrors.aliyun.com/g;s/security.debian.org/mirrors.
 &&  apt update
 ##### 安装系统软件
 
-RUN apt install -y vim net-tools telnet wget libxml2-dev zlib1g-dev libzip-dev unzip
+RUN apt install -y vim net-tools telnet wget libxml2-dev zlib1g-dev libzip-dev unzip libpng-dev
 
 ##### 安装php扩展
 
-RUN docker-php-ext-install pdo_mysql soap zip \
+RUN docker-php-ext-install pdo_mysql soap zip gd \
 && pecl install redis mongodb xdebug  \
-&& docker-php-ext-enable pdo_mysql soap zip redis mongodb xdebug
+&& docker-php-ext-enable pdo_mysql soap zip redis mongodb xdebug gd
 
 ##### 安装composer
 
