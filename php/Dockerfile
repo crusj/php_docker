@@ -20,9 +20,9 @@ RUN wget https://getcomposer.org/download/1.8.5/composer.phar -O /usr/local/bin/
 && chmod +x /usr/local/bin/composer  \
 && composer config -g repo.packagist composer https://packagist.laravel-china.org
 ##### 改变www-data uid gid
-RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
+RUN usermod -u 1000 www-data && groupmod -g 1000 www-data &&  cp $PHP_INI_DIR/php.ini-production $PHP_INI_DIR/php.ini
 
-COPY xdebug.conf /usr/local/etc/php/conf.d
+COPY xdebug.ini /usr/local/etc/php/conf.d
 
 
 
